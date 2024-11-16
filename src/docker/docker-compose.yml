@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17     # Use a versão desejada do PostgreSQL
+    container_name: sb-postgres
+    restart: always
+    ports:
+      - "5432:5432"        # Porta do PostgreSQL
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: sb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
